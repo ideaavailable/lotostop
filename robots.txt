@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ideaavailable.github.io/lotostop/sitemap.xml
