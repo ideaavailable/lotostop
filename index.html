@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今週買ってはいけないロト番号 | LOTO GUARD</title>
+    <meta name="description"
+        content="数学的・確率的分析に基づく「買わない方がいい」ロト6・ロト7・ミニロトの番号組み合わせを毎週更新。7つの根拠で回避すべき30通りを提示。">
+    <meta name="keywords" content="ロト6,ロト7,ミニロト,買ってはいけない,おすすめしない,避けるべき,確率,統計,番号,LOTO">
+    <meta property="og:title" content="今週買ってはいけないロト番号 | LOTO GUARD">
+    <meta property="og:description" content="数学的根拠に基づく「買わない方がいい」ロト番号を毎週更新">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="今週買ってはいけないロト番号 | LOTO GUARD">
+    <meta name="twitter:description" content="数学的根拠に基づく「買わない方がいい」ロト番号を毎週更新">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "LOTO GUARD",
+        "description": "日本のロト6・ロト7・ミニロトの買ってはいけない番号組み合わせを数学的に分析・提示するWebアプリ",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Orbitron:wght@700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-particles" id="particles"></div>
+
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">🛡️</span>
+            <h1>LOTO<span class="logo-guard">GUARD</span></h1>
+        </div>
+        <p class="subtitle">買う前にチェック ─ 避けるべき番号を知る</p>
+        <span class="week-label" id="week-label"></span>
+    </header>
+
+    <main class="main-content">
+        <!-- Game Tabs -->
+        <div class="game-tabs" id="game-tabs">
+            <button class="game-tab active" data-game="loto6" id="tab-loto6">
+                <span class="tab-label">LOTO6</span>
+                <span class="tab-desc">1〜43から6個</span>
+            </button>
+            <button class="game-tab" data-game="loto7" id="tab-loto7">
+                <span class="tab-label">LOTO7</span>
+                <span class="tab-desc">1〜37から7個</span>
+            </button>
+            <button class="game-tab" data-game="mini" id="tab-mini">
+                <span class="tab-label">ミニロト</span>
+                <span class="tab-desc">1〜31から5個</span>
+            </button>
+        </div>
+
+        <!-- Section Header -->
+        <div class="section-header">
+            <h2 class="section-title">
+                <span class="icon">⚠️</span>
+                <span>今週おすすめしない組み合わせ</span>
+            </h2>
+            <p class="section-subtitle">数学的・確率的分析により回避を推奨する番号の組み合わせ</p>
+            <span class="section-count" id="section-count">30通り</span>
+        </div>
+
+        <!-- Avoidance Cards Grid -->
+        <div class="avoid-grid" id="avoid-grid">
+            <!-- Cards rendered by JS -->
+        </div>
+
+        <!-- SNS Share -->
+        <div class="share-section">
+            <p class="share-title">📱 この結果をシェアする</p>
+            <div class="share-buttons" id="share-buttons">
+                <button class="share-btn twitter" id="share-twitter">
+                    𝕏 ポスト
+                </button>
+                <button class="share-btn line" id="share-line">
+                    LINE で送る
+                </button>
+            </div>
+        </div>
+
+        <!-- Number Check Section -->
+        <section class="check-section fade-in-up" id="check-section">
+            <h2 class="check-title">
+                <span>🔍</span>
+                <span>あなたの番号をチェック</span>
+            </h2>
+            <p class="check-description">購入予定の番号を入力して、回避リストに該当するかチェックしましょう</p>
+
+            <div class="check-game-selector" id="check-game-selector">
+                <button class="check-game-btn active" data-game="loto6">LOTO6</button>
+                <button class="check-game-btn" data-game="loto7">LOTO7</button>
+                <button class="check-game-btn" data-game="mini">ミニロト</button>
+            </div>
+
+            <div class="check-inputs" id="check-inputs">
+                <!-- Inputs rendered by JS -->
+            </div>
+
+            <button class="check-btn" id="check-btn">🔍 チェックする</button>
+
+            <div class="check-result" id="check-result">
+                <!-- Result rendered by JS -->
+            </div>
+        </section>
+
+        <!-- Analysis Section -->
+        <section class="analysis-section fade-in-up">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="icon">📊</span>
+                    <span>統計分析データ</span>
+                </h2>
+                <p class="section-subtitle">直近の当選番号から算出した分析データ</p>
+            </div>
+            <div class="analysis-grid" id="analysis-grid">
+                <!-- Analysis cards rendered by JS -->
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section class="methodology-section fade-in-up">
+            <h2 class="methodology-title">📐 回避判定の7つの根拠</h2>
+            <ul class="method-list">
+                <li class="method-item">
+                    <span class="method-icon">🔄</span>
+                    <div class="method-content">
+                        <h4>根拠1: 過去当選番号との一致</h4>
+                        <p>歴史的に同一の組み合わせが繰り返し当選した例はゼロ。過去の当選番号と完全一致する組み合わせは避けるべき。</p>
+                    </div>
+                </li>
+                <li class="method-item">
+                    <span class="method-icon">📊</span>
+                    <div class="method-content">
+                        <h4>根拠2: 出現頻度の極端な偏り</h4>
+                        <p>全番号が高頻度 or 全番号が低頻度の組み合わせは、統計的に最も起こりにくいパターン。</p>
+                    </div>
+                </li>
+                <li class="method-item">
+                    <span class="method-icon">🔢</span>
+                    <div class="method-content">
+                        <h4>根拠3: 合計値の統計的外れ値</h4>
+                        <p>過去の当選番号合計値はほぼ正規分布に従い、IQR（四分位範囲）の外にある合計値は統計的に不利。</p>
+                    </div>
+                </li>
+                <li class="method-item">
+                    <span class="method-icon">⚖️</span>
+                    <div class="method-content">
+                        <h4>根拠4: 偶数/奇数バランスの崩壊</h4>
+                        <p>全偶数or全奇数の確率はLOTO6で約1.3%、LOTO7で約0.8%と極めて低い。</p>
+                    </div>
+                </li>
+                <li class="method-item">
+                    <span class="method-icon">🔗</span>
+                    <div class="method-content">
+                        <h4>根拠5: 連番過多パターン</h4>
+                        <p>3つ以上の連番を含む組み合わせの当選確率は極めて低く、全体の約2-3%。</p>
+                    </div>
+                </li>
+                <li class="method-item">
+                    <span class="method-icon">🎯</span>
+                    <div class="method-content">
+                        <h4>根拠6: ゾーン偏り</h4>
+                        <p>番号を低・中・高の3ゾーンに分割した場合、一つのゾーンに全集中する確率は非常に低い。</p>
+                    </div>
+                </li>
+                <li class="method-item">
+                    <span class="method-icon">📐</span>
+                    <div class="method-content">
+                        <h4>根拠7: 等差数列・算術パターン</h4>
+                        <p>「1,2,3,4,5,6」や「5,10,15,20,25,30」等の規則パターンは当選実績が皆無。</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>※ このサイトは統計分析に基づいて回避を推奨する組み合わせを提示するものです。当選・非当選を保証するものではありません。</p>
+        <nav class="footer-nav">
+            <a href="privacy-policy.html" class="footer-link">プライバシーポリシー</a>
+            <span class="footer-divider">|</span>
+            <a href="privacy-policy.html#disclaimer" class="footer-link">免責事項</a>
+        </nav>
+        <p class="copyright">© 2026 LOTO GUARD</p>
+    </footer>
+
+    <script src="historical_data.js"></script>
+    <script src="avoidance_engine.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
